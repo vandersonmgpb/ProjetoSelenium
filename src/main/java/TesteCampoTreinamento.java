@@ -1,6 +1,7 @@
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -23,13 +24,12 @@ public class TesteCampoTreinamento {
 	}
 	
 	@Test
-	public void deveInteragirComTextArea() {
+	public void deveInteragirComTextArea(){
 		WebDriver driver = new FirefoxDriver();
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("teste\n\naslakflfdg\nUltima linha");
-		Assert.assertEquals("teste", driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
-		
+	
 				
 		driver.quit();
 	}
@@ -124,6 +124,37 @@ public class TesteCampoTreinamento {
 //		driver.findElement(By.id("buttonSimple")).click();
 	}	
 
-
+	@Test
+	@Ignore
+	public void deveinteragirComLinks(){
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
+		driver.findElement(By.linkText("Voltar")).click();
+		
+		Assert.assertEquals("Voltou!", driver.findElement(By.id("Resultado")).getText());
+		driver.quit();
+		
+	}
+	
+	@Test
+	public void deveBuscarTextosNaPagina(){
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
+//		System.out.println(driver.findElement(By.tagName("body")).getText());
+//		Assert.assertTrue(driver.findElement(By.tagName("body"))
+//				.getText().contains("Campo de Treinamento"));
+		Assert.assertEquals("Campo de Treinamento", 
+				driver.findElement(By.tagName("h3")).getText());
+		
+		Assert.assertEquals("Cuidado onde clica, muitas armadilhas...",
+				driver.findElement(By.className("facilAchar")).getText());
+		driver.quit();
+		
+		
+	}	
 }
 
