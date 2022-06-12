@@ -18,6 +18,7 @@ public class DSL {
 	/**********TextField e TextArena **********/
 	
 	public void escrever(By by, String texto) {
+		driver.findElement(by).clear();
 		driver.findElement(by).sendKeys(texto);
 	}	
 		
