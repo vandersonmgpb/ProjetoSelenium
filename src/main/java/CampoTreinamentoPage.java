@@ -28,12 +28,12 @@ public class CampoTreinamentoPage {
 		dsl.clicarRadio("elementosForm:comidaFavorita:0");
 	}
 	
-	public void setComidaPizza() {
-		dsl.clicarRadio("elementosForm:comidaFavorita:0");
+	public void setComidaFrango() {
+		dsl.clicarRadio("elementosForm:comidaFavorita:1");
 	}
 	
 	public void setComidaVegetariano() {
-		dsl.clicarRadio("elementosForm:comidaFavorita:0");
+		dsl.clicarRadio("elementosForm:comidaFavorita:3");
 	}
 	
 	public void setEscolaridade(String valor) {

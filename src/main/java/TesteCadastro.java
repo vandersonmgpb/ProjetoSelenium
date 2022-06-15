@@ -75,7 +75,7 @@ public class TesteCadastro {
 		page.setNome("Nome qualquer");
 		page.setSobrenome("Sobrenome qualquer");
 		page.setSexoFeminino();
-		page.setComidaPizza();
+		page.setComidaFrango();
 		page.setComidaVegetariano();
 		page.cadastrar();
 		Assert.assertEquals("Tem certeza que voce eh vegetariano?", dsl.alertaObterTextoEAceita());	
@@ -86,7 +86,7 @@ public class TesteCadastro {
 		page.setNome("Nome qualquer");
 		page.setSobrenome("Sobrenome qualquer");
 		page.setSexoFeminino();
-		page.setComidaPizza();
+		page.setComidaFrango();
 		page.setEsporte("Karate", "O que eh esporte?");
 		page.cadastrar();
 		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
