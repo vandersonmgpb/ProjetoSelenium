@@ -3,9 +3,12 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import jdk.nashorn.internal.scripts.JS;
 
 public class DSL {
 	
@@ -163,5 +166,12 @@ public class DSL {
 	
 	public void trocarJanela(String id) {
 		driver.switchTo().window(id);
+	}
+	
+	/**************** JS *****************/
+	
+	public Object executarJS(String cmd, Object...param) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript(cmd, param);
 	}
 }
